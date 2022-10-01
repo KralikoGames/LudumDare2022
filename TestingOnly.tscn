@@ -10,3 +10,13 @@ position = Vector2(533, 286)
 
 [node name="Platform" parent="." instance=ExtResource("2_m280g")]
 position = Vector2(3, 30)
+
+[node name="Platform2" parent="." instance=ExtResource("2_m280g")]
+position = Vector2(177, -34)
+
+[node name="Platform3" parent="." instance=ExtResource("2_m280g")]
+position = Vector2(-154, -5)
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+current = true
+zoom = Vector2(2, 2)
