@@ -1,15 +1,16 @@
 extends CharacterBody2D
 
 
-@export var SPEED = 80
+@export var SPEED = 50
 @export var JUMP_VELOCITY = -400
 @export var SHORT_HOP_MODIFIER = 5
 const APEX_JUMP_THRESHOLD = 10
-const APEX_BONUS = 1
-const MIN_FALL_SPEED = 0
-const MAX_FALL_SPEED = 0
+const APEX_BONUS = 100
+const MIN_FALL_SPEED = 800
+const MAX_FALL_SPEED = 1000
 @export var GROUND_FRICTION = 0.80
 @export var COYOTE_TIME = 0.09
+const MAX_SPEED = 200
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -17,12 +18,14 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # var gravity = 100
 var time_since_fall = 0
 var saved_jump = false
+var jumping = false
 
 
 func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
 	if is_on_floor():
+		jumping = false
 		time_since_fall = 0
 	else:
 		time_since_fall += delta
@@ -32,21 +35,31 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jumping = true
 	elif Input.is_action_just_pressed("ui_accept") and time_since_fall < COYOTE_TIME:
 		velocity.y = JUMP_VELOCITY
+		jumping = true
 	elif Input.is_action_just_pressed("ui_accept"):
 		# Save jump
 		saved_jump = true
 	elif is_on_floor() and saved_jump:
 		velocity.y = JUMP_VELOCITY
+		jumping = true
 		saved_jump = false
 	
 	# reset saved jump
 	if Input.is_action_just_released("ui_accept"):
 		saved_jump = false
 		
-		
-		
+	# _apexPoint = Mathf.InverseLerp(_jumpApexThreshold, 0, Mathf.ABs(velocity.y));
+	var apex_point = inverse_lerp(500, 0, abs(velocity.y))
+	
+	# var apexBoost = Mathf.Sign(Input.X)* _apexBonus * _apex'Point;
+	var apex_boost = direction * APEX_BONUS * apex_point
+	
+	
+	#fallSpeed = Mathf.Lerp(_minFallSpeed, _maxFallSpeed, _apexPoint)
+	gravity = lerpf(MIN_FALL_SPEED, MAX_FALL_SPEED, apex_point)
 	
 	#  Add the gravity and chec kfor short hop
 	if Input.is_action_just_released("ui_accept") and not is_on_floor() and velocity.y < 0:
@@ -56,16 +69,28 @@ func _physics_process(delta):
 
 
 	# Increases as you get closer to the apex
-	var apex_point = inverse_lerp(1000, 0, abs(velocity.y))
-
-	var apex_bonus = APEX_BONUS * apex_point
-	print(apex_bonus)
 	
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	velocity.x += direction * SPEED
-	velocity.x*= GROUND_FRICTION
-		
+
+	
+	# _currentHorizontalSpeed += apexBoots * Time.deltaTime;
+	
+
+	
+	
+	
+	if direction > 0:
+		velocity.x = min(velocity.x+SPEED, MAX_SPEED)
+	elif direction < 0:
+		velocity.x = max(velocity.x-SPEED, -MAX_SPEED)
+	elif is_on_floor():
+		velocity.x = lerpf(velocity.x, 0, 0.2)
+	else:
+		velocity.x = lerpf(velocity.x, 0, 0.02)
+	
+	# here is the boost
+	print(jumping)
+	if jumping:
+		velocity.x += apex_boost
 	
 
 	move_and_slide()
