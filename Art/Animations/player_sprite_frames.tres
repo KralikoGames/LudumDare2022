@@ -76,14 +76,14 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [SubResource("AtlasTexture_2gfve"), SubResource("AtlasTexture_4741j")],
-"loop": true,
+"loop": false,
 "name": &"jump",
-"speed": 20.0
+"speed": 5.0
 }, {
 "frames": [SubResource("AtlasTexture_uq57m"), SubResource("AtlasTexture_c2i8v")],
-"loop": true,
+"loop": false,
 "name": &"land",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [SubResource("AtlasTexture_mwctk"), SubResource("AtlasTexture_3l4wx"), SubResource("AtlasTexture_on071"), SubResource("AtlasTexture_s5llb"), SubResource("AtlasTexture_11lpk"), SubResource("AtlasTexture_ae0jw")],
 "loop": true,

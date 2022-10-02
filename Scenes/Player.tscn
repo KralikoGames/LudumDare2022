@@ -26,7 +26,7 @@ shape = SubResource("CapsuleShape2D_c6kvn")
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 frames = ExtResource("2_3n5p0")
-animation = &"idle"
+animation = &"jump"
 playing = true
 script = ExtResource("3_y2qh0")
 
