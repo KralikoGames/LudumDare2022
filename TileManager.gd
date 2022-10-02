@@ -1,5 +1,6 @@
 extends TileMap
 
+const TileSprites = [Vector2i(0,1),Vector2i(1,0),Vector2i(0,0)]
 var usedTiles = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -7,7 +8,7 @@ func _ready():
 	#set_cell(0,Vector2(2,0),1,Vector2i(0,0))
 	usedTiles[Vector2(0,0)] = true;
 	#get_surrounding_tiles(Vector2(0,0)
-	MakeBranch(Vector2i(5,8))
+	MakeLeaves(Vector2i(-7,-8))
 
 	pass # Replace with function body.
 
@@ -39,16 +40,26 @@ func MakeBranch(endPos):
 	print(slope);
 	var posList = [];
 	
-	for i in range(slope.x):
+	for i in range(abs(slope.x)):
 		posList.append('x');		
-	for i in range(slope.y):
+	for i in range(abs(slope.y)):
 		posList.append('y');
 		
 	posList.shuffle()
-	for i in range(slope.x+slope.y):
+	var branchTiles = abs(slope.x)+abs(slope.y)
+	for i in range(branchTiles):
+		print(branchTiles);
 		if(posList[i] == 'x'):
-			growPos.x += 1 
+			growPos.x += sign(slope.x) 
+			
 		else:
-			growPos.y -= 1;
-		await get_tree().create_timer(.2).timeout
-		set_cell(0,growPos,1,Vector2i(0,0))
+			growPos.y += sign(slope.y) 
+		for j in range(3):
+			await get_tree().create_timer(.33).timeout
+			set_cell(0,growPos,1,TileSprites[j])
+			
+func MakeLeaves(pos):
+	MakeBranch(pos)
+	await get_tree().create_timer(10).timeout
+	set_cell(0,pos,1,Vector2i(1,1))
+			
