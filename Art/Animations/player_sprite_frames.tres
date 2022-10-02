@@ -87,6 +87,6 @@ animations = [{
 }, {
 "frames": [SubResource("AtlasTexture_mwctk"), SubResource("AtlasTexture_3l4wx"), SubResource("AtlasTexture_on071"), SubResource("AtlasTexture_s5llb"), SubResource("AtlasTexture_11lpk"), SubResource("AtlasTexture_ae0jw")],
 "loop": true,
-"name": &"walk",
+"name": &"run",
 "speed": 5.0
 }]
