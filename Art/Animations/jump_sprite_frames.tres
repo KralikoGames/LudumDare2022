@@ -1,3 +1,59 @@
-[gd_resource type="SpriteFrames" format=3 uid="uid://4feyq3prkdc7"]
+[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://4feyq3prkdc7"]
+
+[ext_resource type="Texture2D" uid="uid://7mr8bkhwwv2a" path="res://Art/Spritesheets/JumpEffect-Sheet.png" id="1_hampd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y50ud"]
+atlas = ExtResource("1_hampd")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54bf2"]
+atlas = ExtResource("1_hampd")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sjqx"]
+atlas = ExtResource("1_hampd")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk8am"]
+atlas = ExtResource("1_hampd")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja5ne"]
+atlas = ExtResource("1_hampd")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11eqw"]
+atlas = ExtResource("1_hampd")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3neix"]
+atlas = ExtResource("1_hampd")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o7su"]
+atlas = ExtResource("1_hampd")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulnny"]
+atlas = ExtResource("1_hampd")
+region = Rect2(192, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63e28"]
+atlas = ExtResource("1_hampd")
+region = Rect2(216, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybmtn"]
+atlas = ExtResource("1_hampd")
+region = Rect2(240, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hwia"]
+atlas = ExtResource("1_hampd")
+region = Rect2(264, 0, 24, 24)
 
 [resource]
+animations = [{
+"frames": [SubResource("AtlasTexture_y50ud"), SubResource("AtlasTexture_54bf2"), SubResource("AtlasTexture_6sjqx"), SubResource("AtlasTexture_mk8am"), SubResource("AtlasTexture_ja5ne"), SubResource("AtlasTexture_11eqw"), SubResource("AtlasTexture_3neix"), SubResource("AtlasTexture_4o7su"), SubResource("AtlasTexture_ulnny"), SubResource("AtlasTexture_63e28"), SubResource("AtlasTexture_ybmtn"), SubResource("AtlasTexture_8hwia")],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
