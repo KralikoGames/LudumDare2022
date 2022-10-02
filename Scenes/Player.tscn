@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bcnaoj83xukrp"]
+[gd_scene load_steps=15 format=3 uid="uid://bcnaoj83xukrp"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_r1x3q"]
 [ext_resource type="SpriteFrames" uid="uid://bo8y5ogx6lnvq" path="res://Art/Animations/player_sprite_frames.tres" id="2_3n5p0"]
@@ -11,6 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://dl50t053uyqmv" path="res://Audio/Playerfs3.wav" id="8_q82bq"]
 [ext_resource type="AudioStream" uid="uid://c0lia3ml8w54q" path="res://Audio/Playerfs4.wav" id="9_fl6f0"]
 [ext_resource type="AudioStream" uid="uid://qqj6psibax1t" path="res://Audio/Playerfs5.wav" id="10_416f1"]
+[ext_resource type="AudioStream" uid="uid://cmriwt1l40dkq" path="res://Audio/Land_v2.wav" id="12_qvybh"]
+[ext_resource type="Script" path="res://Scenes/PlayerLand.gd" id="13_5b1h5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c6kvn"]
 radius = 8.0
@@ -63,3 +65,8 @@ stream = ExtResource("4_e0ryp")
 volume_db = -14.381
 pitch_scale = 1.05
 script = ExtResource("5_yel0e")
+
+[node name="PlayerLand" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_qvybh")
+pitch_scale = 1.62
+script = ExtResource("13_5b1h5")
