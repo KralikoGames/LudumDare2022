@@ -59,7 +59,7 @@ func _physics_process(delta):
 	var apex_point = inverse_lerp(1000, 0, abs(velocity.y))
 
 	var apex_bonus = APEX_BONUS * apex_point
-	print(apex_bonus)
+	#print(apex_bonus)
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

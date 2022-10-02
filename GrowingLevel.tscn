@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://y66a1tg3godl"]
+
+[ext_resource type="PackedScene" uid="uid://bcnaoj83xukrp" path="res://Scenes/Player.tscn" id="1_l5ayj"]
+[ext_resource type="PackedScene" uid="uid://5nfmo85teun4" path="res://Scenes/Platform.tscn" id="2_m280g"]
+[ext_resource type="Texture2D" uid="uid://dehreiul437vd" path="res://Art/Spritesheets/testTree.png" id="3_p7ku4"]
+[ext_resource type="Script" path="res://TileManager.gd" id="4_y21a6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2ypb"]
+texture = ExtResource("3_p7ku4")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4jor1"]
+sources/1 = SubResource("TileSetAtlasSource_q2ypb")
+
+[node name="TestingOnly" type="Node2D"]
+position = Vector2(533, 286)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_4jor1")
+format = 2
+layer_0/name = "Tree"
+script = ExtResource("4_y21a6")
+
+[node name="Player" parent="." instance=ExtResource("1_l5ayj")]
+
+[node name="Platform" parent="." instance=ExtResource("2_m280g")]
+position = Vector2(3, 30)
+
+[node name="Platform" parent="Platform" instance=ExtResource("2_m280g")]
+position = Vector2(88, 82)
+
+[node name="Platform2" parent="." instance=ExtResource("2_m280g")]
+position = Vector2(177, -34)
+
+[node name="Platform3" parent="." instance=ExtResource("2_m280g")]
+position = Vector2(-154, -5)
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+current = true
+zoom = Vector2(2, 2)
