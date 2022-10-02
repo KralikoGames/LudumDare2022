@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
 
-const SPEED = 80
-const JUMP_VELOCITY = -400
-const SHORT_HOP_MODIFIER = 5
+@export var SPEED = 80
+@export var JUMP_VELOCITY = -400
+@export var SHORT_HOP_MODIFIER = 5
 const APEX_JUMP_THRESHOLD = 10
 const APEX_BONUS = 1
 const MIN_FALL_SPEED = 0
 const MAX_FALL_SPEED = 0
-const GROUND_FRICTION = 0.80
-const CYOTE_TIME = 0.09
+@export var GROUND_FRICTION = 0.80
+@export var COYOTE_TIME = 0.09
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -32,7 +32,7 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	elif Input.is_action_just_pressed("ui_accept") and time_since_fall < CYOTE_TIME:
+	elif Input.is_action_just_pressed("ui_accept") and time_since_fall < COYOTE_TIME:
 		velocity.y = JUMP_VELOCITY
 	elif Input.is_action_just_pressed("ui_accept"):
 		# Save jump
@@ -56,11 +56,11 @@ func _physics_process(delta):
 
 
 	# Increases as you get closer to the apex
-#	var apex_point = lerp(0, 10, inverse_lerp(0, 10, abs(velocity.y)))
-#
-#	var apex_bonus = direction * APEX_BONUS * apex_point
-#	print(apex_point)
+	var apex_point = inverse_lerp(1000, 0, abs(velocity.y))
 
+	var apex_bonus = APEX_BONUS * apex_point
+	print(apex_bonus)
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	velocity.x += direction * SPEED
