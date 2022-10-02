@@ -34,6 +34,7 @@ var moving = false
 var facing = 1
 
 
+
 func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
@@ -48,7 +49,6 @@ func _physics_process(delta):
 		time_since_fall = 0
 	else:
 		time_since_fall += delta
-	
 	
 	
 	# Handle Jump.

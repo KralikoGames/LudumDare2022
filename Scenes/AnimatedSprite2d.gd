@@ -25,6 +25,8 @@ func _on_moved_right():
 	
 func _on_landed():
 	play("land")
+	await self.animation_finished
+	play("idle")
 	
 func _on_stopped():
 	play("idle")
