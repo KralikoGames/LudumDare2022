@@ -4,12 +4,14 @@ const TileSprites = [Vector2i(0,1),Vector2i(1,0),Vector2i(0,0)]
 var usedTiles = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize()
 	set_cell(0,Vector2(0,0),1,Vector2i(0,0))
 	#set_cell(0,Vector2(2,0),1,Vector2i(0,0))
 	usedTiles[Vector2(0,0)] = true;
 	#get_surrounding_tiles(Vector2(0,0)
-	MakeLeaves(Vector2i(-7,-8))
-
+	#MakeLeaves(Vector2i(-3,-8))
+	MakeStage(0)
+	
 	pass # Replace with function body.
 
 
@@ -55,11 +57,23 @@ func MakeBranch(endPos):
 		else:
 			growPos.y += sign(slope.y) 
 		for j in range(3):
-			await get_tree().create_timer(.33).timeout
+			await get_tree().create_timer(((9.0/float(branchTiles))/3.0)).timeout
 			set_cell(0,growPos,1,TileSprites[j])
 			
 func MakeLeaves(pos):
 	MakeBranch(pos)
 	await get_tree().create_timer(10).timeout
-	set_cell(0,pos,1,Vector2i(1,1))
+	
+	var leafSize = randi()%6+2;
+	var adjustPos = pos
+	for i in range(leafSize):
+		adjustPos.x = pos.x-(leafSize/2) + i
+		set_cell(0,adjustPos,1,Vector2i(1,1))
+		
+func MakeStage(height):
+	for i in range(3):
+		for j in range(5):
+			set_cell(0,Vector2i(i-2,-j+height),1,Vector2i(0,0))
 			
+	for i in range(5):
+		MakeLeaves(Vector2i(randi()%30-15,randi()%10-10))
