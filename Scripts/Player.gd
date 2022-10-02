@@ -1,71 +1,121 @@
 extends CharacterBody2D
 
+signal moved
+signal landed
+signal jumped
+signal stopped
+signal fell
+signal soared
 
-@export var SPEED = 80
+@export var SPEED = 50
 @export var JUMP_VELOCITY = -400
-@export var SHORT_HOP_MODIFIER = 5
+@export var SHORT_HOP_MODIFIER = 6
 const APEX_JUMP_THRESHOLD = 10
-const APEX_BONUS = 1
-const MIN_FALL_SPEED = 0
-const MAX_FALL_SPEED = 0
+const APEX_BONUS = 100
+const MIN_FALL_SPEED = 800
+const MAX_FALL_SPEED = 1000
 @export var GROUND_FRICTION = 0.80
-@export var COYOTE_TIME = 0.09
-
+@export var COYOTE_TIME = 0.06
+const MAX_SPEED = 200
+const jump_stall_time = 0.06
+const land_stall_time = 0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-# var gravity = 100
+var time_since_land = 0
+var time_since_jump = 0
 var time_since_fall = 0
 var saved_jump = false
+var jumping = false
+var falling = false
+var moving = false
+var standing = false
+var facing = 1
+var jump_stall = false
+var land_stall = false
 
 
 func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
+	if direction != 0:
+		facing = direction
+	
+	# Handling landing, falling, and cyote times
+	if is_on_floor() and (jumping or falling):
+		jumping = false
+		falling = false
+		land_stall = true
+		emit_signal("landed")
+	if velocity.y > 0 and not falling:
+		falling = true
+		emit_signal("fell")
 	if is_on_floor():
 		time_since_fall = 0
 	else:
 		time_since_fall += delta
 	
-	
-	
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	elif Input.is_action_just_pressed("ui_accept") and time_since_fall < COYOTE_TIME:
-		velocity.y = JUMP_VELOCITY
-	elif Input.is_action_just_pressed("ui_accept"):
-		# Save jump
-		saved_jump = true
-	elif is_on_floor() and saved_jump:
-		velocity.y = JUMP_VELOCITY
+	var coyote_check = time_since_fall < COYOTE_TIME and falling
+	var jump_pressed = Input.is_action_just_pressed("ui_accept")
+	var valid_jump_input = jump_pressed or saved_jump
+	var valid_jump_situation = is_on_floor() or coyote_check
+	var no_stalls = not land_stall and not jump_stall
+	if  valid_jump_input and valid_jump_situation and no_stalls:
 		saved_jump = false
-	
-	# reset saved jump
+		jump_stall = true
+		emit_signal("jumped")
+	elif Input.is_action_just_pressed("ui_accept"):
+		saved_jump = true
 	if Input.is_action_just_released("ui_accept"):
 		saved_jump = false
-		
-		
-		
 	
-	#  Add the gravity and chec kfor short hop
+	# Handling stalls
+	if jump_stall:
+		time_since_jump += delta
+	if time_since_jump > jump_stall_time and jump_stall:
+		velocity.y = JUMP_VELOCITY
+		jump_stall = false
+		time_since_jump = 0
+		jumping = true
+		emit_signal("soared")
+	if land_stall:
+		time_since_land += delta
+	if time_since_land > land_stall_time and land_stall:
+		land_stall = false
+		time_since_land = 0
+	
+	# Handle in air boosts and modifiers
+	var apex_point = inverse_lerp(500, 0, abs(velocity.y))
+	var apex_boost = direction * APEX_BONUS * apex_point
+	gravity = lerpf(MIN_FALL_SPEED, MAX_FALL_SPEED, apex_point)
 	if Input.is_action_just_released("ui_accept") and not is_on_floor() and velocity.y < 0:
 		velocity.y += gravity * delta * SHORT_HOP_MODIFIER
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-
-	# Increases as you get closer to the apex
-	var apex_point = inverse_lerp(1000, 0, abs(velocity.y))
-
-	var apex_bonus = APEX_BONUS * apex_point
-	#print(apex_bonus)
+	# Handle left and right movement
+	if direction > 0:
+		velocity.x = min(velocity.x+SPEED, MAX_SPEED)
+	elif direction < 0 and no_stalls:
+		velocity.x = max(velocity.x-SPEED, -MAX_SPEED)
+	elif is_on_floor():
+		velocity.x = lerpf(velocity.x, 0, 0.25)
+	else:
+		velocity.x = lerpf(velocity.x, 0, 0.04)
+	if jumping:
+		velocity.x += apex_boost
 	
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	velocity.x += direction * SPEED
-	velocity.x*= GROUND_FRICTION
-		
+	# Handling walking and idle animations
+	if is_on_floor() and direction != 0 and not moving:
+		moving = true
+		emit_signal("moved")
+	elif not is_on_floor() or direction == 0:
+		moving = false
+	if is_on_floor() and direction == 0 and no_stalls and not standing:
+		standing = true
+		emit_signal("stopped")
+	if Input.is_action_just_pressed("ui_accept") or direction != 0:
+		standing = false
 	
-
 	move_and_slide()

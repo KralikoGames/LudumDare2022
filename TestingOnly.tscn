@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dty6147djgyms"]
+[gd_scene load_steps=4 format=3 uid="uid://dty6147djgyms"]
 
 [ext_resource type="PackedScene" uid="uid://bcnaoj83xukrp" path="res://Scenes/Player.tscn" id="1_l5ayj"]
 [ext_resource type="PackedScene" uid="uid://5nfmo85teun4" path="res://Scenes/Platform.tscn" id="2_m280g"]
+[ext_resource type="AudioStream" uid="uid://dq4a21bk2e8w3" path="res://Audio/Tree_Game_track1_v1.wav" id="3_be0eo"]
 
 [node name="TestingOnly" type="Node2D"]
 position = Vector2(533, 286)
@@ -23,3 +24,8 @@ position = Vector2(-154, -5)
 [node name="PlayerCamera" type="Camera2D" parent="."]
 current = true
 zoom = Vector2(2, 2)
+
+[node name="Track1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_be0eo")
+volume_db = -11.143
+autoplay = true

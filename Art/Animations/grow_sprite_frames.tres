@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://dv1guw606edub"]
+
+[ext_resource type="Texture2D" uid="uid://bi14xus5fpfgj" path="res://Art/Spritesheets/GrowEffect-Sheet.png" id="1_33egw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcrtm"]
+atlas = ExtResource("1_33egw")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vehny"]
+atlas = ExtResource("1_33egw")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o2te"]
+atlas = ExtResource("1_33egw")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmab3"]
+atlas = ExtResource("1_33egw")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysy2n"]
+atlas = ExtResource("1_33egw")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0slwn"]
+atlas = ExtResource("1_33egw")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38no1"]
+atlas = ExtResource("1_33egw")
+region = Rect2(144, 0, 24, 24)
+
+[resource]
+animations = [{
+"frames": [SubResource("AtlasTexture_tcrtm"), SubResource("AtlasTexture_vehny"), SubResource("AtlasTexture_0o2te"), SubResource("AtlasTexture_dmab3"), SubResource("AtlasTexture_ysy2n"), SubResource("AtlasTexture_0slwn"), SubResource("AtlasTexture_38no1")],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
