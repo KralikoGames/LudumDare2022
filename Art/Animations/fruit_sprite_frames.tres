@@ -1,0 +1,115 @@
+[gd_resource type="SpriteFrames" load_steps=18 format=3 uid="uid://hp0h1s8xew81"]
+
+[ext_resource type="Texture2D" uid="uid://bh6ao1ekftwfn" path="res://Art/Spritesheets/Fruit-Sheet.png" id="1_hmkie"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr6jt"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(336, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b76s4"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4jvi"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk0m2"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xjfo"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0lk5"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8i00"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le53q"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iaro"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx77m"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(192, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rir2h"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(216, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntxtw"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(360, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm835"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(312, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3eac"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(240, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imkny"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(264, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u6c6"]
+atlas = ExtResource("1_hmkie")
+region = Rect2(288, 0, 24, 24)
+
+[resource]
+animations = [{
+"frames": [SubResource("AtlasTexture_lr6jt")],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_b76s4")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_e4jvi"), SubResource("AtlasTexture_sk0m2"), SubResource("AtlasTexture_8xjfo")],
+"loop": false,
+"name": &"growth1",
+"speed": 10.0
+}, {
+"frames": [SubResource("AtlasTexture_u0lk5"), SubResource("AtlasTexture_n8i00"), SubResource("AtlasTexture_le53q")],
+"loop": false,
+"name": &"growth2",
+"speed": 10.0
+}, {
+"frames": [SubResource("AtlasTexture_8iaro"), SubResource("AtlasTexture_hx77m"), SubResource("AtlasTexture_rir2h")],
+"loop": true,
+"name": &"growth3",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_ntxtw")],
+"loop": true,
+"name": &"picked",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_mm835")],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_e3eac"), SubResource("AtlasTexture_imkny")],
+"loop": false,
+"name": &"sprout",
+"speed": 10.0
+}, {
+"frames": [SubResource("AtlasTexture_6u6c6")],
+"loop": true,
+"name": &"yellow",
+"speed": 5.0
+}]
