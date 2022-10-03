@@ -5,8 +5,10 @@ const GROW_CYCLES = 10
 const BRANCH_NUMBER = 4
 const LEAF_SPACING = 5
 const GROW_PHASES = 6
+const FRUIT_CHANCE = 6
 
 @onready var grow_pop = preload("res://Scenes/GrowPop.tscn")
+@onready var fruit = preload("res://Scenes/Fruit.tscn")
 
 func _ready():
 	var height_offset = (LEAF_SPACING-2)*BRANCH_NUMBER
@@ -64,15 +66,31 @@ func run_grow(base_height):
 			for i in range(-platform_size/2, platform_size/2, 1):
 				platform_array.append(Vector2i(platform_location.x + i, platform_location.y))
 			$AlexLeaves.set_cells_terrain_connect(0, platform_array, 1, 0)
+			
+			# Add fruit
+			var fruit_roll = not randi()%4
+			if fruit_roll:
+				var fruit_pos = Vector2i(platform_location.x, platform_location.y -1)
+				grow_fruit(fruit_pos)
+			
 
 
 func grow_effect(cell_position):
 	var cell_size = $AlexBranches.cell_quadrant_size
 	var local_tile_pos = $AlexBranches.map_to_local(cell_position)
 	var global_tile_pos = to_global(local_tile_pos)
-	var pop = grow_pop.instantiate()
-	get_parent().call_deferred("add_child", pop)
-	pop.global_position = global_tile_pos
-	
+	var thing = grow_pop.instantiate()
+	get_parent().call_deferred("add_child", thing)
+	thing.global_position = global_tile_pos
+
+func grow_fruit(cell_position):
+	var cell_size = $AlexBranches.cell_quadrant_size
+	var local_tile_pos = $AlexBranches.map_to_local(cell_position)
+	var global_tile_pos = $AlexBranches.to_global(local_tile_pos)
+	var thing = fruit.instantiate()
+	get_parent().call_deferred("add_child", thing)
+	global_tile_pos.x -= 7
+	global_tile_pos.y -= 4
+	thing.global_position = global_tile_pos
 	
 	

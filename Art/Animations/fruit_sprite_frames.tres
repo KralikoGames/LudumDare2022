@@ -79,7 +79,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [SubResource("AtlasTexture_e4jvi"), SubResource("AtlasTexture_sk0m2"), SubResource("AtlasTexture_8xjfo")],
-"loop": false,
+"loop": true,
 "name": &"growth1",
 "speed": 10.0
 }, {
