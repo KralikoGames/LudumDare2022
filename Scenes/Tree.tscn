@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c2q1tv2i1805"]
 
-[ext_resource type="TileSet" uid="uid://ccnmr0f7mo7a6" path="res://Art/Tiles/Tilemap.tres" id="1_f5i72"]
+[ext_resource type="TileSet" uid="uid://b0shpadq5y0r3" path="res://Art/Tiles/Tilemap.tres" id="1_f5i72"]
 
 [node name="TileMap" type="TileMap"]
 texture_filter = 1
