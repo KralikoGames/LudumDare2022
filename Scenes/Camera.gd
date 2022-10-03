@@ -2,7 +2,7 @@ extends Camera2D
 
 
 
-const CAMERA_SPEED = 0.08
+const CAMERA_SPEED = 0.06
 
 @onready var player: CharacterBody2D = get_parent().get_node("Player")
 	
@@ -10,5 +10,5 @@ const CAMERA_SPEED = 0.08
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var smoothed_position = lerp(position, player.position, CAMERA_SPEED)
-	position.y = clamp(smoothed_position.y - 2, 0, 250)
+	position.y = clamp(smoothed_position.y - 2, -1000, 270)
 	position.x = smoothed_position.x

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl2h6ldc04slp"]
+
+[ext_resource type="AudioStream" uid="uid://dq4a21bk2e8w3" path="res://Audio/Tree_Game_track1_v1.wav" id="1_jw8e6"]
+
+[node name="Track1" type="AudioStreamPlayer"]
+stream = ExtResource("1_jw8e6")
+volume_db = -11.143
+autoplay = true

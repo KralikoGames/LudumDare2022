@@ -12,7 +12,7 @@ signal soared
 @export var SHORT_HOP_MODIFIER = 6
 const APEX_JUMP_THRESHOLD = 10
 const APEX_BONUS = 15
-const MIN_FALL_SPEED = 800
+const MIN_FALL_SPEED = 600
 const MAX_FALL_SPEED = 800
 @export var GROUND_FRICTION = 0.80
 @export var COYOTE_TIME = 0.06
