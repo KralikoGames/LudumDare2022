@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://GameManager.gd" id="1_jes2q"]
 [ext_resource type="PackedScene" uid="uid://dl2h6ldc04slp" path="res://Scenes/MainMusic.tscn" id="1_ucjyb"]
 [ext_resource type="PackedScene" uid="uid://b8lijh3pceq5e" path="res://AlexFullGrowth.tscn" id="2_bisl2"]
+[ext_resource type="AudioStream" uid="uid://gtmgxvj7ycik" path="res://Audio/Tree_Game_track1_v2.wav" id="2_bpl1q"]
 [ext_resource type="PackedScene" uid="uid://bcnaoj83xukrp" path="res://Scenes/Player.tscn" id="2_wsx14"]
 [ext_resource type="PackedScene" uid="uid://c2q1tv2i1805" path="res://Scenes/Tree.tscn" id="2_y4dyn"]
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="4_8h61r"]
@@ -18,6 +19,7 @@ size = Vector2(188.25, 1363.5)
 script = ExtResource("1_jes2q")
 
 [node name="Track1" parent="." instance=ExtResource("1_ucjyb")]
+stream = ExtResource("2_bpl1q")
 
 [node name="Background" parent="." instance=ExtResource("1_arp4v")]
 layer_0/tile_data = PackedInt32Array(983042, 0, 36, -1179646, 0, 0, -3473406, 0, 0, -5767166, 0, 0, 589828, 262145, 3, 458756, 1, 3, 917512, 1, 1, 786439, 1, 3, 655363, 262145, 3, 655364, 262145, 3, 589859, 262145, 3, 458785, 262145, 3, 524322, 262145, 3, 524324, 262145, 3, -2490369, 1, 3, -2621440, 1, 3, -2162677, 1, 3, -2162676, 1, 3, -2228211, 1, 3, -2228210, 1, 3, -2097131, 1, 3, -2097132, 1, 3, -2162669, 1, 3, -2162670, 1, 3, -2162671, 1, 3, -2162672, 1, 3, -2228209, 262145, 3, -2359285, 1, 3, -2359286, 1, 3, -2424823, 1, 3, -2424824, 1, 3, -2490361, 1, 3, -2490362, 1, 3, -2555899, 1, 3, -2555900, 1, 3, -2621437, 1, 3, -2621438, 1, 3, -2686975, 1, 3, -2686976, 1, 3, -2752502, 1, 3, -2752501, 1, 3, -2686965, 1, 3, -2686964, 1, 3, -2686963, 1, 3, -2686962, 1, 3, -2621425, 1, 3, -2621424, 1, 3, -2555887, 1, 3, -2555886, 1, 3, -2555885, 1, 3, -2490348, 1, 3, -2490347, 1, 3, -2424811, 1, 3, -2424810, 1, 3, -2359274, 1, 3, -2359273, 1, 3, -2293737, 1, 3, -2293736, 1, 3, -2293735, 1, 3, -2228199, 1, 3, -2228198, 1, 3, -1507313, 1, 3, -1441777, 1, 3, -1441778, 1, 3, -1376242, 1, 3, -1376243, 1, 3, -1310707, 1, 3, -1245171, 1, 3, -1966059, 262145, 3, -1900523, 262145, 3, -1834987, 262145, 3, -1769451, 262145, 3, -1703915, 262145, 3, -1638379, 262145, 3, -1572843, 262145, 3, -1507308, 262145, 3, -1441772, 262145, 3, -1376236, 262145, 3, -1310701, 262145, 3, -1245165, 262145, 3, -1179629, 262145, 3, -1114093, 262145, 3)
