@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://74f3kt7ofx45"]
 
-[ext_resource type="Texture2D" path="res://Art/leaves and branches tileset.png" id="1_0oaki"]
+[ext_resource type="Texture2D" uid="uid://ddvdyew1i2n8d" path="res://Art/leaves and branches tileset.png" id="1_0oaki"]
+[ext_resource type="AudioStream" uid="uid://bx6nfsrlko4iy" path="res://Audio/Grow_platform_v1.wav" id="2_wkhln"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8yib"]
 atlas = ExtResource("1_0oaki")
@@ -21,3 +22,7 @@ texture_filter = 1
 position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_6hk5r")
 one_way_collision = true
+
+[node name="GrowBush" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_wkhln")
+pitch_scale = 0.91
