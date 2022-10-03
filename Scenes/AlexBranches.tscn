@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://dn24a1kescpik"]
 
 [ext_resource type="Texture2D" uid="uid://ddvdyew1i2n8d" path="res://Art/leaves and branches tileset.png" id="1_b4pcg"]
 [ext_resource type="Script" path="res://Scenes/AlexBranches.gd" id="2_rqhkd"]
