@@ -17,7 +17,7 @@ const MAX_FALL_SPEED = 1000
 @export var GROUND_FRICTION = 0.80
 @export var COYOTE_TIME = 0.06
 const MAX_SPEED = 200
-const jump_stall_time = 0.06
+const jump_stall_time = 0
 const land_stall_time = 0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://8dodyqng6g74"]
+
+[ext_resource type="TileSet" uid="uid://b4py5o0gr3101" path="res://Art/Tiles/Tilemap.tres" id="1_n0n0u"]
+
+[node name="Background" type="TileMap"]
+texture_filter = 1
+tile_set = ExtResource("1_n0n0u")
+format = 2
+layer_0/tile_data = PackedInt32Array(983042, 0, 36, -1179646, 0, 0, -3473406, 0, 0, -5767166, 0, 0, 589828, 262145, 3, 458756, 1, 3, 917512, 1, 1, 786439, 1, 3, 655363, 262145, 3, 655364, 262145, 3, 589859, 262145, 3, 458785, 262145, 3, 524322, 262145, 3, 524324, 262145, 3)

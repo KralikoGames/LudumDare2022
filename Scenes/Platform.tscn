@@ -1,16 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://5nfmo85teun4"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Texture2D" uid="uid://1eva34r4m2xe" path="res://Art/icon.svg" id="1_bcped"]
+[ext_resource type="Texture2D" path="res://Art/leaves and branches tileset.png" id="1_0oaki"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8yib"]
+atlas = ExtResource("1_0oaki")
+region = Rect2(18.3128, -0.0764647, 44.8507, 14.7789)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hk5r"]
-size = Vector2(128, 20)
+size = Vector2(86, 15)
 
 [node name="Platform" type="StaticBody2D"]
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
-scale = Vector2(1, 0.156)
-texture = ExtResource("1_bcped")
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_r8yib")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_6hk5r")
 one_way_collision = true
