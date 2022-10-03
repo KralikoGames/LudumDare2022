@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cp2du07ifdv24"]
 
-[ext_resource type="SpriteFrames" uid="uid://cm0p4i2oj2qod" path="res://Art/Animations/land_sprite_frames.tres" id="1_wtypj"]
+[ext_resource type="SpriteFrames" uid="uid://icnju3l32slx" path="res://Art/Animations/land_sprite_frames.tres" id="1_wtypj"]
 
 [sub_resource type="GDScript" id="GDScript_kcobv"]
 script/source = "extends AnimatedSprite2D

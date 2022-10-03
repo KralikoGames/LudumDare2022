@@ -67,7 +67,7 @@ func run_grow_phase(base_height):
 	# Grow Leaves
 	$TreeSound.play()
 	await get_tree().create_timer(1).timeout
-	var fruit = []
+	var fruit_list = []
 	for branch in range(0, len(branch_tiles)):
 		for cell in range(LEAF_SPACING - 1, GROW_CYCLES, LEAF_SPACING):
 			var platform_location = branch_tiles[branch][cell]
@@ -84,9 +84,9 @@ func run_grow_phase(base_height):
 			var fruit_roll = not randi()%4
 			if fruit_roll:
 				var fruit_pos = Vector2i(platform_location.x, platform_location.y -1)
-				fruit.append(fruit_pos)
+				fruit_list.append(fruit_pos)
 	await get_tree().create_timer(1).timeout
-	for f in fruit:
+	for f in fruit_list:
 		grow_fruit(f)
 		bush_effect(f)
 
@@ -100,7 +100,6 @@ func clear_cells():
 
 
 func grow_effect(cell_position):
-	var cell_size = $AlexBranches.cell_quadrant_size
 	var local_tile_pos = $AlexBranches.map_to_local(cell_position)
 	var global_tile_pos = to_global(local_tile_pos)
 	var thing = grow_pop.instantiate()
@@ -108,7 +107,6 @@ func grow_effect(cell_position):
 	thing.global_position = global_tile_pos
 
 func bush_effect(cell_position):
-	var cell_size = $AlexBranches.cell_quadrant_size
 	var local_tile_pos = $AlexBranches.map_to_local(cell_position)
 	var global_tile_pos = to_global(local_tile_pos)
 	var thing = bush_pop.instantiate()
@@ -116,7 +114,6 @@ func bush_effect(cell_position):
 	thing.global_position = global_tile_pos
 
 func platform_effect(cell_position):
-	var cell_size = $AlexBranches.cell_quadrant_size
 	var local_tile_pos = $AlexBranches.map_to_local(cell_position)
 	var global_tile_pos = to_global(local_tile_pos)
 	var thing = platform_pop.instantiate()
@@ -124,7 +121,6 @@ func platform_effect(cell_position):
 	thing.global_position = global_tile_pos
 
 func grow_fruit(cell_position):
-	var cell_size = $AlexBranches.cell_quadrant_size
 	var local_tile_pos = $AlexBranches.map_to_local(cell_position)
 	var global_tile_pos = $AlexBranches.to_global(local_tile_pos)
 	var thing = fruit.instantiate()
@@ -136,9 +132,9 @@ func grow_fruit(cell_position):
 func grow_chungus():
 	var chungs_location = Vector2(0,-832)
 	var pop = grow_pop.instantiate()
-	var fruit = chungus_fruit.instantiate()
+	var thing = chungus_fruit.instantiate()
 	get_parent().call_deferred("add_child", pop)
-	get_parent().call_deferred("add_child", fruit)
+	get_parent().call_deferred("add_child", thing)
 	pop.global_position = chungs_location
 	fruit.global_position = chungs_location
 	$BigFruitSound.play()
