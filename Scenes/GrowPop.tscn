@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjn4qwycwr1vx"]
+
+[ext_resource type="SpriteFrames" uid="uid://dv1guw606edub" path="res://Art/Animations/grow_sprite_frames.tres" id="1_2led7"]
+[ext_resource type="Script" path="res://Scenes/GrowPop.gd" id="2_qj6d2"]
+
+[node name="GrowPop" type="AnimatedSprite2D"]
+texture_filter = 1
+frames = ExtResource("1_2led7")
+animation = &"Pop"
+playing = true
+script = ExtResource("2_qj6d2")

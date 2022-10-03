@@ -7,13 +7,13 @@ signal stopped
 signal fell
 signal soared
 
-@export var SPEED = 30
+@export var SPEED = 20
 @export var JUMP_VELOCITY = -400
 @export var SHORT_HOP_MODIFIER = 6
 const APEX_JUMP_THRESHOLD = 10
 const APEX_BONUS = 60
-const MIN_FALL_SPEED = 800
-const MAX_FALL_SPEED = 1000
+const MIN_FALL_SPEED = 650
+const MAX_FALL_SPEED = 900
 @export var GROUND_FRICTION = 0.80
 @export var COYOTE_TIME = 0.06
 const MAX_SPEED = 200
