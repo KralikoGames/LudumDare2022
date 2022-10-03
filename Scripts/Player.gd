@@ -34,6 +34,11 @@ var facing = 1
 var jump_stall = false
 var land_stall = false
 
+@onready var area_2d = $TEST
+
+func _ready():
+	area_2d.area_entered.connect(_on_enter)
+
 
 func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -119,3 +124,13 @@ func _physics_process(delta):
 		standing = false
 
 	move_and_slide()
+
+func _on_enter(_body):
+	var object = _body.get_meta("object")
+	print(object)
+	if object == "fruit":
+		var type = _body.get_meta("type")
+		print(type)
+		_body._eat()
+	if object == "chungus":
+		_body._eat()

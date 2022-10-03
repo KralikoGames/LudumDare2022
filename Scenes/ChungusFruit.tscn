@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://tp1u1hrko2p1"]
+
+[ext_resource type="Texture2D" uid="uid://lobrp3pju867" path="res://Art/BigFruit.png" id="1_2smmg"]
+[ext_resource type="Script" path="res://Scenes/ChungusFruit.gd" id="1_6ql61"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6h6gn"]
+radius = 7.0
+
+[node name="Fruit" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_6ql61")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_6h6gn")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture = ExtResource("1_2smmg")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bllniifxi8xln"]
+[gd_scene load_steps=10 format=3 uid="uid://bllniifxi8xln"]
 
 [ext_resource type="PackedScene" uid="uid://8dodyqng6g74" path="res://Scenes/Level1.tscn" id="1_arp4v"]
+[ext_resource type="Script" path="res://GameManager.gd" id="1_jes2q"]
 [ext_resource type="PackedScene" uid="uid://dl2h6ldc04slp" path="res://Scenes/MainMusic.tscn" id="1_ucjyb"]
 [ext_resource type="PackedScene" uid="uid://b8lijh3pceq5e" path="res://AlexFullGrowth.tscn" id="2_bisl2"]
 [ext_resource type="PackedScene" uid="uid://bcnaoj83xukrp" path="res://Scenes/Player.tscn" id="2_wsx14"]
@@ -13,7 +14,8 @@ size = Vector2(959, 35)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jgnfs"]
 size = Vector2(188.25, 1363.5)
 
-[node name="LevelOne" type="Node2D"]
+[node name="LevelTwo" type="Node2D"]
+script = ExtResource("1_jes2q")
 
 [node name="Track1" parent="." instance=ExtResource("1_ucjyb")]
 
@@ -32,7 +34,7 @@ position = Vector2(-3, 307)
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(96, 301)
 current = true
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 smoothing_speed = 16.0
 script = ExtResource("4_8h61r")
 
