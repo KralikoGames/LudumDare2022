@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://4jytoxmt8g1n"]
+[gd_scene load_steps=6 format=3 uid="uid://4jytoxmt8g1n"]
 
 [ext_resource type="Script" path="res://Scenes/Fruit.gd" id="1_5kmtn"]
 [ext_resource type="SpriteFrames" uid="uid://hp0h1s8xew81" path="res://Art/Animations/fruit_sprite_frames.tres" id="1_nr22d"]
+[ext_resource type="AudioStream" uid="uid://defgkbsr7al0u" path="res://Audio/Berry_eat_v1.wav" id="3_1cqbw"]
+[ext_resource type="AudioStream" uid="uid://15mo20nphpst" path="res://Audio/Berry_grow_v1.wav" id="4_ei74w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6h6gn"]
 radius = 7.0
@@ -18,3 +20,11 @@ playing = true
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_6h6gn")
+
+[node name="Eat" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1cqbw")
+volume_db = -10.0
+
+[node name="Grow" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ei74w")
+volume_db = -20.0

@@ -8,6 +8,7 @@ const GROW_PHASES = 6
 const FRUIT_CHANCE = 6
 
 @onready var grow_pop = preload("res://Scenes/GrowPop.tscn")
+@onready var platform_pop = preload("res://Scenes/PlatformPop.tscn")
 @onready var fruit = preload("res://Scenes/Fruit.tscn")
 @onready var chungus_fruit = preload("res://Scenes/ChungusFruit.tscn")
 
@@ -68,12 +69,14 @@ func run_grow_phase(base_height):
 			await get_tree().create_timer(grow_wait).timeout
 	
 	# Grow Leaves
+	$TreeSound.play()
+	await get_tree().create_timer(1).timeout
 	for branch in range(0, len(branch_tiles)):
 		for cell in range(LEAF_SPACING - 1, GROW_CYCLES, LEAF_SPACING):
 			var platform_location = branch_tiles[branch][cell]
 			var platform_size = randi()%3 + 2 # between 2 and 4
 			var platform_array = [platform_location]
-			grow_effect(platform_location)
+			platform_effect(platform_location)
 			for i in range(-platform_size/2, platform_size/2, 1):
 				var new_cell = Vector2i(platform_location.x + i, platform_location.y)
 				platform_array.append(new_cell)
@@ -100,6 +103,14 @@ func grow_effect(cell_position):
 	var local_tile_pos = $AlexBranches.map_to_local(cell_position)
 	var global_tile_pos = to_global(local_tile_pos)
 	var thing = grow_pop.instantiate()
+	get_parent().call_deferred("add_child", thing)
+	thing.global_position = global_tile_pos
+
+func platform_effect(cell_position):
+	var cell_size = $AlexBranches.cell_quadrant_size
+	var local_tile_pos = $AlexBranches.map_to_local(cell_position)
+	var global_tile_pos = to_global(local_tile_pos)
+	var thing = platform_pop.instantiate()
 	get_parent().call_deferred("add_child", thing)
 	thing.global_position = global_tile_pos
 

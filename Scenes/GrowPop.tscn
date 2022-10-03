@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjn4qwycwr1vx"]
+[gd_scene load_steps=4 format=3 uid="uid://cjn4qwycwr1vx"]
 
 [ext_resource type="SpriteFrames" uid="uid://dv1guw606edub" path="res://Art/Animations/grow_sprite_frames.tres" id="1_2led7"]
 [ext_resource type="Script" path="res://Scenes/GrowPop.gd" id="2_qj6d2"]
+[ext_resource type="AudioStream" uid="uid://b3dvuvhmsjgs5" path="res://Audio/Wood_v1.wav" id="3_8pe14"]
 
 [node name="GrowPop" type="AnimatedSprite2D"]
 texture_filter = 1
@@ -9,3 +10,7 @@ frames = ExtResource("1_2led7")
 animation = &"Pop"
 playing = true
 script = ExtResource("2_qj6d2")
+
+[node name="AudioStreamPlayer2d" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8pe14")
+volume_db = -23.038

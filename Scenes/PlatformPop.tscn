@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://coqqp704btv0s"]
+
+[ext_resource type="SpriteFrames" uid="uid://dv1guw606edub" path="res://Art/Animations/grow_sprite_frames.tres" id="1_2led7"]
+[ext_resource type="Script" path="res://Scenes/PlatformPop.gd" id="2_u587r"]
+[ext_resource type="AudioStream" uid="uid://bx6nfsrlko4iy" path="res://Audio/Grow_platform_v1.wav" id="3_cfylb"]
+
+[node name="PlatformPop" type="AnimatedSprite2D"]
+texture_filter = 1
+frames = ExtResource("1_2led7")
+animation = &"Pop"
+playing = true
+script = ExtResource("2_u587r")
+
+[node name="AudioStreamPlayer2d" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cfylb")
+volume_db = -5.0

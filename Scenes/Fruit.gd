@@ -1,6 +1,12 @@
 extends Area2D
 
+var eaten = false
+
+@onready var eat_effect = preload("res://Scenes/EatEffect.tscn")
+
 func _ready():
+	$Grow.play()
+	
 	set_meta("object", "fruit")
 	var type_roll = randi()%3
 	if type_roll == 0:
@@ -15,3 +21,9 @@ func _ready():
 
 func _eat():
 	$AnimatedSprite2d.play("picked")
+	if not eaten:
+		$Eat.play()
+		eaten = true
+		var thing = eat_effect.instantiate()
+		get_parent().get_parent().add_child(thing)
+		thing.global_position = global_position

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba04eu40eb4qn"]
+
+[ext_resource type="SpriteFrames" uid="uid://cigpnf7ais2e4" path="res://Art/Animations/bite_sprite_frames.tres" id="1_65hm2"]
+
+[sub_resource type="GDScript" id="GDScript_kcobv"]
+script/source = "extends AnimatedSprite2D
+
+func _ready():
+	play(\"default\")
+	animation_finished.connect(_animation_finished)
+
+
+func _animation_finished():
+	queue_free()
+"
+
+[node name="EatEffect" type="AnimatedSprite2D"]
+texture_filter = 1
+frames = ExtResource("1_65hm2")
+playing = true
+script = SubResource("GDScript_kcobv")

@@ -6,6 +6,7 @@ signal jumped
 signal stopped
 signal fell
 signal soared
+signal game_over
 
 @export var SPEED = 10
 @export var JUMP_VELOCITY = -350
