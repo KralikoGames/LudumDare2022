@@ -1,0 +1,43 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://h5sjsejqd1b0"]
+
+[ext_resource type="Texture2D" uid="uid://bmi7brr14gj7f" path="res://Art/Spritesheets/SmallBiteEffect-Sheet.png" id="1_rfvlh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikhhj"]
+atlas = ExtResource("1_rfvlh")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5e8b"]
+atlas = ExtResource("1_rfvlh")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6id2n"]
+atlas = ExtResource("1_rfvlh")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7yd4"]
+atlas = ExtResource("1_rfvlh")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6jgr"]
+atlas = ExtResource("1_rfvlh")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewm1h"]
+atlas = ExtResource("1_rfvlh")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu2nw"]
+atlas = ExtResource("1_rfvlh")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkjv4"]
+atlas = ExtResource("1_rfvlh")
+region = Rect2(168, 0, 24, 24)
+
+[resource]
+animations = [{
+"frames": [SubResource("AtlasTexture_ikhhj"), SubResource("AtlasTexture_t5e8b"), SubResource("AtlasTexture_6id2n"), SubResource("AtlasTexture_l7yd4"), SubResource("AtlasTexture_p6jgr"), SubResource("AtlasTexture_ewm1h"), SubResource("AtlasTexture_mu2nw"), SubResource("AtlasTexture_rkjv4")],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
