@@ -10,33 +10,33 @@ const FRUIT_CHANCE = 6
 @onready var grow_pop = preload("res://Scenes/GrowPop.tscn")
 @onready var fruit = preload("res://Scenes/Fruit.tscn")
 @onready var chungus_fruit = preload("res://Scenes/ChungusFruit.tscn")
-var all_cells = []
 
 func _ready():
 	grow_tree()
-#	await get_tree().create_timer(5).timeout
-#	clear_cells()
 
 
 func grow_tree():
+	var stage_wait = 10
 	var height_offset = (LEAF_SPACING-2)*BRANCH_NUMBER
 	for i in range(GROW_PHASES):
 		randomize()
 		run_grow_phase(-1*height_offset*i)
-		await get_tree().create_timer(10).timeout
+		await get_tree().create_timer(stage_wait).timeout
 	# Grow Chungus
 	await get_tree().create_timer(3).timeout
 	grow_chungus()
+	await get_tree().create_timer(3).timeout
+	clear_cells()
 
 func run_grow_phase(base_height):
 	# Add starting node for each branch
 	var branch_tiles = []
 	var grow_direction = [] 
 	var grow_wait = float(10)/GROW_CYCLES/BRANCH_NUMBER
+	
 	for branch in range(BRANCH_NUMBER):
 		var root_cell = Vector2i(0, base_height - BRANCH_OFFSET*branch)
 		branch_tiles.append([root_cell])
-		all_cells.append(root_cell)
 		if branch%2:
 			grow_direction.append("left")
 		else:
@@ -61,7 +61,6 @@ func run_grow_phase(base_height):
 			var last_cell = branch_tiles[branch][cycle]
 			var new_cell = Vector2i(last_cell.x + change_x, last_cell.y + change_y)
 			branch_tiles[branch].append(new_cell)
-			all_cells.append(new_cell)
 			
 			# Grow branch and wait
 			$AlexBranches.set_cells_terrain_connect(0, branch_tiles[branch], 0, 0)
@@ -78,7 +77,6 @@ func run_grow_phase(base_height):
 			for i in range(-platform_size/2, platform_size/2, 1):
 				var new_cell = Vector2i(platform_location.x + i, platform_location.y)
 				platform_array.append(new_cell)
-				all_cells.append(new_cell)
 			$AlexLeaves.set_cells_terrain_connect(0, platform_array, 1, 0)
 			
 			# Add fruit
@@ -87,12 +85,14 @@ func run_grow_phase(base_height):
 				var fruit_pos = Vector2i(platform_location.x, platform_location.y -1)
 				grow_fruit(fruit_pos)
 
+func clear_cells():
+	var cells = $AlexBranches.get_used_cells(0)
+	for cell in cells:
+		$AlexBranches.erase_cell(0, cell)
 
-#func clear_cells():
-#	for cell in all_cells:
-#		if $AlexBranches.has_cell(cell):
-#			$AlexBranches.remove_cell(cell)
-#	all_cells = []
+	cells = $AlexLeaves.get_used_cells(0)
+	for cell in cells:
+		$AlexLeaves.erase_cell(0, cell)
 
 
 func grow_effect(cell_position):
