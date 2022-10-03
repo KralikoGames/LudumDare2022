@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://qcvhj76a56yx"]
+
+[ext_resource type="SpriteFrames" uid="uid://co53c81hfbohj" path="res://Art/Animations/sprout_sprite_frames.tres" id="1_d6b5q"]
+[ext_resource type="Script" path="res://Scenes/BushEffect.gd" id="2_sqvtu"]
+
+[node name="BushEffect" type="AnimatedSprite2D"]
+texture_filter = 1
+frames = ExtResource("1_d6b5q")
+playing = true
+script = ExtResource("2_sqvtu")

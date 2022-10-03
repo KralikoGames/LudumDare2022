@@ -11,6 +11,7 @@ const FRUIT_CHANCE = 6
 @onready var platform_pop = preload("res://Scenes/PlatformPop.tscn")
 @onready var fruit = preload("res://Scenes/Fruit.tscn")
 @onready var chungus_fruit = preload("res://Scenes/ChungusFruit.tscn")
+@onready var bush_pop = preload("res://Scenes/BushEffect.tscn")
 
 func _ready():
 	grow_tree()
@@ -33,7 +34,7 @@ func run_grow_phase(base_height):
 	# Add starting node for each branch
 	var branch_tiles = []
 	var grow_direction = [] 
-	var grow_wait = float(10)/GROW_CYCLES/BRANCH_NUMBER
+	var grow_wait = float(9)/GROW_CYCLES/BRANCH_NUMBER
 	
 	for branch in range(BRANCH_NUMBER):
 		var root_cell = Vector2i(0, base_height - BRANCH_OFFSET*branch)
@@ -71,6 +72,7 @@ func run_grow_phase(base_height):
 	# Grow Leaves
 	$TreeSound.play()
 	await get_tree().create_timer(1).timeout
+	var fruit = []
 	for branch in range(0, len(branch_tiles)):
 		for cell in range(LEAF_SPACING - 1, GROW_CYCLES, LEAF_SPACING):
 			var platform_location = branch_tiles[branch][cell]
@@ -86,13 +88,16 @@ func run_grow_phase(base_height):
 			var fruit_roll = not randi()%4
 			if fruit_roll:
 				var fruit_pos = Vector2i(platform_location.x, platform_location.y -1)
-				grow_fruit(fruit_pos)
+				fruit.append(fruit_pos)
+	await get_tree().create_timer(1).timeout
+	for f in fruit:
+		grow_fruit(f)
+		bush_effect(f)
 
 func clear_cells():
 	var cells = $AlexBranches.get_used_cells(0)
 	for cell in cells:
 		$AlexBranches.erase_cell(0, cell)
-
 	cells = $AlexLeaves.get_used_cells(0)
 	for cell in cells:
 		$AlexLeaves.erase_cell(0, cell)
@@ -103,6 +108,14 @@ func grow_effect(cell_position):
 	var local_tile_pos = $AlexBranches.map_to_local(cell_position)
 	var global_tile_pos = to_global(local_tile_pos)
 	var thing = grow_pop.instantiate()
+	get_parent().call_deferred("add_child", thing)
+	thing.global_position = global_tile_pos
+
+func bush_effect(cell_position):
+	var cell_size = $AlexBranches.cell_quadrant_size
+	var local_tile_pos = $AlexBranches.map_to_local(cell_position)
+	var global_tile_pos = to_global(local_tile_pos)
+	var thing = bush_pop.instantiate()
 	get_parent().call_deferred("add_child", thing)
 	thing.global_position = global_tile_pos
 

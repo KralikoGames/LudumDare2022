@@ -1,8 +1,7 @@
 extends AnimatedSprite2D
 
 func _ready():
-	play("Pop")
-	$AudioStreamPlayer2d.play()
+	play("default")
 	animation_finished.connect(_animation_finished)
 
 
