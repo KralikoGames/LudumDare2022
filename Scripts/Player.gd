@@ -7,13 +7,13 @@ signal stopped
 signal fell
 signal soared
 
-@export var SPEED = 30
-@export var JUMP_VELOCITY = -400
+@export var SPEED = 15
+@export var JUMP_VELOCITY = -350
 @export var SHORT_HOP_MODIFIER = 6
 const APEX_JUMP_THRESHOLD = 10
-const APEX_BONUS = 60
+const APEX_BONUS = 15
 const MIN_FALL_SPEED = 800
-const MAX_FALL_SPEED = 1000
+const MAX_FALL_SPEED = 800
 @export var GROUND_FRICTION = 0.80
 @export var COYOTE_TIME = 0.06
 const MAX_SPEED = 200
@@ -102,7 +102,7 @@ func _physics_process(delta):
 	elif is_on_floor():
 		velocity.x = lerpf(velocity.x, 0, 0.25)
 	else:
-		velocity.x = lerpf(velocity.x, 0, 0.04)
+		velocity.x = lerpf(velocity.x, 0, 0.2)
 	if jumping:
 		velocity.x += apex_boost
 	
