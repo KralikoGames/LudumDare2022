@@ -37,10 +37,10 @@ var land_stall = false
 
 func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
-	
+
 	if direction != 0:
 		facing = direction
-	
+
 	# Handling landing, falling, and cyote times
 	if is_on_floor() and (jumping or falling):
 		jumping = false
@@ -54,7 +54,7 @@ func _physics_process(delta):
 		time_since_fall = 0
 	else:
 		time_since_fall += delta
-	
+
 	# Handle Jump.
 	var coyote_check = time_since_fall < COYOTE_TIME and falling
 	var jump_pressed = Input.is_action_just_pressed("ui_accept")
@@ -69,7 +69,7 @@ func _physics_process(delta):
 		saved_jump = true
 	if Input.is_action_just_released("ui_accept"):
 		saved_jump = false
-	
+
 	# Handling stalls
 	if jump_stall:
 		time_since_jump += delta
@@ -84,7 +84,7 @@ func _physics_process(delta):
 	if time_since_land > land_stall_time and land_stall:
 		land_stall = false
 		time_since_land = 0
-	
+
 	# Handle in air boosts and modifiers
 	var apex_point = inverse_lerp(500, 0, abs(velocity.y))
 	var apex_boost = direction * APEX_BONUS * apex_point
@@ -105,7 +105,7 @@ func _physics_process(delta):
 		velocity.x = lerpf(velocity.x, 0, 0.2)
 	if jumping:
 		velocity.x += apex_boost
-	
+
 	# Handling walking and idle animations
 	if is_on_floor() and direction != 0 and not moving:
 		moving = true
@@ -117,5 +117,5 @@ func _physics_process(delta):
 		emit_signal("stopped")
 	if Input.is_action_just_pressed("ui_accept") or direction != 0:
 		standing = false
-	
+
 	move_and_slide()

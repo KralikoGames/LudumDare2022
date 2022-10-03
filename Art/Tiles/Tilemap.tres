@@ -60,5 +60,5 @@ texture = ExtResource("3_gfciq")
 [resource]
 tile_size = Vector2i(8, 8)
 sources/0 = SubResource("TileSetAtlasSource_kpaul")
-sources/1 = SubResource("TileSetAtlasSource_ut1kt")
 sources/2 = SubResource("TileSetAtlasSource_apa4c")
+sources/1 = SubResource("TileSetAtlasSource_ut1kt")

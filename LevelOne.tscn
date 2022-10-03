@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://cn62qlf1usunf"]
 
 [ext_resource type="PackedScene" uid="uid://8dodyqng6g74" path="res://Scenes/Level1.tscn" id="1_arp4v"]
 [ext_resource type="PackedScene" path="res://Scenes/AlexBranches.tscn" id="2_li1to"]
@@ -18,11 +18,9 @@ texture_filter = 1
 [node name="Background" parent="." instance=ExtResource("1_arp4v")]
 
 [node name="AlexBranches" parent="." instance=ExtResource("2_li1to")]
-texture_filter = 1
 position = Vector2(2, 325)
 
 [node name="Tree" parent="." instance=ExtResource("2_y4dyn")]
-texture_filter = 1
 
 [node name="Player" parent="." instance=ExtResource("2_wsx14")]
 position = Vector2(-3, 307)

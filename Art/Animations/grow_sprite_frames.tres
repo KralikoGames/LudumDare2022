@@ -2,38 +2,38 @@
 
 [ext_resource type="Texture2D" uid="uid://bi14xus5fpfgj" path="res://Art/Spritesheets/GrowEffect-Sheet.png" id="1_33egw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tcrtm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ed8r"]
 atlas = ExtResource("1_33egw")
 region = Rect2(0, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vehny"]
-atlas = ExtResource("1_33egw")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0o2te"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3k3a"]
 atlas = ExtResource("1_33egw")
 region = Rect2(48, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dmab3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibav5"]
+atlas = ExtResource("1_33egw")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gco7d"]
 atlas = ExtResource("1_33egw")
 region = Rect2(72, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ysy2n"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxjgh"]
 atlas = ExtResource("1_33egw")
 region = Rect2(96, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0slwn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptl3b"]
 atlas = ExtResource("1_33egw")
 region = Rect2(120, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_38no1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yoth"]
 atlas = ExtResource("1_33egw")
 region = Rect2(144, 0, 24, 24)
 
 [resource]
 animations = [{
-"frames": [SubResource("AtlasTexture_tcrtm"), SubResource("AtlasTexture_vehny"), SubResource("AtlasTexture_0o2te"), SubResource("AtlasTexture_dmab3"), SubResource("AtlasTexture_ysy2n"), SubResource("AtlasTexture_0slwn"), SubResource("AtlasTexture_38no1")],
+"frames": [SubResource("AtlasTexture_1ed8r"), SubResource("AtlasTexture_j3k3a"), SubResource("AtlasTexture_ibav5"), SubResource("AtlasTexture_gco7d"), SubResource("AtlasTexture_kxjgh"), SubResource("AtlasTexture_ptl3b"), SubResource("AtlasTexture_2yoth")],
 "loop": true,
-"name": &"default",
+"name": &"Pop",
 "speed": 20.0
 }]
