@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bllniifxi8xln"]
+[gd_scene load_steps=11 format=3 uid="uid://bllniifxi8xln"]
 
 [ext_resource type="PackedScene" uid="uid://8dodyqng6g74" path="res://Scenes/Level1.tscn" id="1_arp4v"]
 [ext_resource type="Script" path="res://GameManager.gd" id="1_jes2q"]
@@ -13,7 +13,7 @@
 size = Vector2(959, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jgnfs"]
-size = Vector2(188.25, 1363.5)
+size = Vector2(217.625, 1363.5)
 
 [node name="LevelTwo" type="Node2D"]
 script = ExtResource("1_jes2q")
@@ -49,12 +49,12 @@ shape = SubResource("RectangleShape2D_oitba")
 [node name="LeftBound" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="LeftBound"]
-position = Vector2(-365, -299)
+position = Vector2(-360, -300)
 shape = SubResource("RectangleShape2D_jgnfs")
 
 [node name="RightBound" type="StaticBody2D" parent="."]
 position = Vector2(761, 14)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="RightBound"]
-position = Vector2(-353.875, -312)
+position = Vector2(-360.375, -312)
 shape = SubResource("RectangleShape2D_jgnfs")

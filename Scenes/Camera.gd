@@ -10,5 +10,5 @@ const CAMERA_SPEED = 0.06
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var smoothed_position = lerp(position, player.position, CAMERA_SPEED)
-	position.y = clamp(smoothed_position.y - 2, -800, 270)
+	position.y = clamp(smoothed_position.y - 2, -800, 260)
 	position.x = smoothed_position.x
