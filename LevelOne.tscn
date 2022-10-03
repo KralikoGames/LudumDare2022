@@ -13,13 +13,16 @@ size = Vector2(959, 35)
 size = Vector2(199, 1073)
 
 [node name="LevelOne" type="Node2D"]
+texture_filter = 1
 
 [node name="Background" parent="." instance=ExtResource("1_arp4v")]
 
 [node name="AlexBranches" parent="." instance=ExtResource("2_li1to")]
+texture_filter = 1
 position = Vector2(2, 325)
 
 [node name="Tree" parent="." instance=ExtResource("2_y4dyn")]
+texture_filter = 1
 
 [node name="Player" parent="." instance=ExtResource("2_wsx14")]
 position = Vector2(-3, 307)
