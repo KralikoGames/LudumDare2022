@@ -34,6 +34,8 @@ var standing = false
 var facing = 1
 var jump_stall = false
 var land_stall = false
+var frozen = false
+var frozen_time = 0
 
 @onready var area_2d = $TEST
 
@@ -124,7 +126,13 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") or direction != 0:
 		standing = false
 
-	move_and_slide()
+	if frozen and frozen_time > 2:
+		frozen = false
+		frozen_time = 0
+	elif frozen:
+		frozen_time += delta
+	else:
+		move_and_slide()
 
 func _on_enter(_body):
 	var object = _body.get_meta("object")
@@ -135,3 +143,5 @@ func _on_enter(_body):
 		_body._eat()
 	if object == "chungus":
 		_body._eat()
+		frozen = true
+		emit_signal("game_over")

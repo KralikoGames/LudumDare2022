@@ -5,6 +5,7 @@ var eaten = false
 @onready var eat_effect = preload("res://Scenes/EatEffect.tscn")
 
 func _ready():
+	get_parent().clear_bushes.connect(_on_game_over)
 	$Grow.play()
 	
 	set_meta("object", "fruit")
@@ -27,3 +28,6 @@ func _eat():
 		var thing = eat_effect.instantiate()
 		get_parent().get_parent().add_child(thing)
 		thing.global_position = global_position
+
+func _on_game_over():
+	queue_free()

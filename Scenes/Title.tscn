@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://v5piaxupi67d"]
+
+[ext_resource type="Texture2D" uid="uid://dxnqvrqi428lx" path="res://Art/title.png" id="1_476hd"]
+[ext_resource type="Script" path="res://Scenes/Title.gd" id="2_xog1m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52up4"]
+atlas = ExtResource("1_476hd")
+region = Rect2(299, 0, 299, 155)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byujc"]
+atlas = ExtResource("1_476hd")
+region = Rect2(0, 0, 299, 155)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kxxya"]
+animations = [{
+"frames": [SubResource("AtlasTexture_52up4"), SubResource("AtlasTexture_byujc")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Title" type="AnimatedSprite2D"]
+texture_filter = 1
+frames = SubResource("SpriteFrames_kxxya")
+frame = 1
+script = ExtResource("2_xog1m")

@@ -13,10 +13,6 @@ const FRUIT_CHANCE = 6
 @onready var chungus_fruit = preload("res://Scenes/ChungusFruit.tscn")
 @onready var bush_pop = preload("res://Scenes/BushEffect.tscn")
 
-func _ready():
-	grow_tree()
-
-
 func grow_tree():
 	var stage_wait = 10
 	var height_offset = (LEAF_SPACING-2)*BRANCH_NUMBER
@@ -28,7 +24,6 @@ func grow_tree():
 	await get_tree().create_timer(3).timeout
 	grow_chungus()
 	await get_tree().create_timer(3).timeout
-	clear_cells()
 
 func run_grow_phase(base_height):
 	# Add starting node for each branch
@@ -78,10 +73,11 @@ func run_grow_phase(base_height):
 			var platform_location = branch_tiles[branch][cell]
 			var platform_size = randi()%3 + 2 # between 2 and 4
 			var platform_array = [platform_location]
-			platform_effect(platform_location)
+#			platform_effect(platform_location)
 			for i in range(-platform_size/2, platform_size/2, 1):
 				var new_cell = Vector2i(platform_location.x + i, platform_location.y)
 				platform_array.append(new_cell)
+				platform_effect(new_cell)
 			$AlexLeaves.set_cells_terrain_connect(0, platform_array, 1, 0)
 			
 			# Add fruit
