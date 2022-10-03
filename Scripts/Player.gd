@@ -7,7 +7,7 @@ signal stopped
 signal fell
 signal soared
 
-@export var SPEED = 15
+@export var SPEED = 10
 @export var JUMP_VELOCITY = -350
 @export var SHORT_HOP_MODIFIER = 6
 const APEX_JUMP_THRESHOLD = 10
