@@ -8,15 +8,17 @@
 position = Vector2(533, 286)
 
 [node name="Player" parent="." instance=ExtResource("1_l5ayj")]
-
-[node name="Platform" parent="." instance=ExtResource("2_m280g")]
-position = Vector2(3, 30)
-
-[node name="Platform" parent="Platform" instance=ExtResource("2_m280g")]
-position = Vector2(88, 82)
+position = Vector2(-31, -11)
 
 [node name="Platform2" parent="." instance=ExtResource("2_m280g")]
 position = Vector2(177, -34)
+
+[node name="Platform4" parent="." instance=ExtResource("2_m280g")]
+position = Vector2(-34, 77)
+
+[node name="Platform5" parent="." instance=ExtResource("2_m280g")]
+position = Vector2(1, 134)
+scale = Vector2(4, 1)
 
 [node name="Platform3" parent="." instance=ExtResource("2_m280g")]
 position = Vector2(-154, -5)

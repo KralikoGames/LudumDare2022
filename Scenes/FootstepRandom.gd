@@ -9,7 +9,6 @@ func _ready():
 func _on_framechanged():
 	randomize()
 	a.shuffle()
-	print(parent_sprite.frame)
 	var chos = a[0]
 	if parent_sprite.animation == "run" and (parent_sprite.frame == 0 or parent_sprite.frame == 3):
 		if chos == 1:

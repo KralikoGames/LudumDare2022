@@ -1,6 +1,8 @@
 extends AnimatedSprite2D
 
 @onready var player: CharacterBody2D = get_parent()
+@onready var jump_effect = preload("res://Scenes/JumpEffect.tscn")
+@onready var land_effect = preload("res://Scenes/LandEffect.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,13 +18,19 @@ func _process(delta):
 
 func _on_jumped():
 	play("jump")
+	var dust = jump_effect.instantiate()
+	get_parent().get_parent().add_child(dust)
+	dust.global_position = global_position
 
 func _on_moved():
 	play("run")
 	
 func _on_landed():
 	play("land")
-	
+	var dust = land_effect.instantiate()
+	get_parent().get_parent().add_child(dust)
+	dust.global_position = global_position
+
 func _on_stopped():
 	play("idle")
 	

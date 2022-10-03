@@ -53,7 +53,7 @@ region = Rect2(264, 0, 24, 24)
 [resource]
 animations = [{
 "frames": [SubResource("AtlasTexture_y50ud"), SubResource("AtlasTexture_54bf2"), SubResource("AtlasTexture_6sjqx"), SubResource("AtlasTexture_mk8am"), SubResource("AtlasTexture_ja5ne"), SubResource("AtlasTexture_11eqw"), SubResource("AtlasTexture_3neix"), SubResource("AtlasTexture_4o7su"), SubResource("AtlasTexture_ulnny"), SubResource("AtlasTexture_63e28"), SubResource("AtlasTexture_ybmtn"), SubResource("AtlasTexture_8hwia")],
-"loop": true,
-"name": &"default",
+"loop": false,
+"name": &"jump",
 "speed": 20.0
 }]
