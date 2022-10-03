@@ -7,18 +7,18 @@ signal stopped
 signal fell
 signal soared
 
-@export var SPEED = 50
+@export var SPEED = 30
 @export var JUMP_VELOCITY = -400
 @export var SHORT_HOP_MODIFIER = 6
 const APEX_JUMP_THRESHOLD = 10
-const APEX_BONUS = 100
+const APEX_BONUS = 60
 const MIN_FALL_SPEED = 800
 const MAX_FALL_SPEED = 1000
 @export var GROUND_FRICTION = 0.80
 @export var COYOTE_TIME = 0.06
 const MAX_SPEED = 200
-const jump_stall_time = 0
-const land_stall_time = 0
+const jump_stall_time = 0.06
+const land_stall_time = 0.04
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -95,7 +95,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Handle left and right movement
-	if direction > 0:
+	if direction > 0 and no_stalls:
 		velocity.x = min(velocity.x+SPEED, MAX_SPEED)
 	elif direction < 0 and no_stalls:
 		velocity.x = max(velocity.x-SPEED, -MAX_SPEED)

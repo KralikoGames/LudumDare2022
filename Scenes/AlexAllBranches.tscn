@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjf072rthr2qj"]
+[gd_scene load_steps=5 format=3 uid="uid://bni2odftjo2ud"]
 
-[ext_resource type="Texture2D" uid="uid://ddvdyew1i2n8d" path="res://Art/leaves and branches tileset.png" id="1_b4pcg"]
-[ext_resource type="Script" path="res://AlexBranches.gd" id="2_rqhkd"]
+[ext_resource type="Texture2D" uid="uid://ddvdyew1i2n8d" path="res://Art/leaves and branches tileset.png" id="1_38by0"]
+[ext_resource type="Script" path="res://Scenes/AlexAllBranches.gd" id="2_t2hm8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_okdab"]
-texture = ExtResource("1_b4pcg")
+texture = ExtResource("1_38by0")
 1:0/0 = 0
 1:0/0/terrain_set = 1
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -107,4 +107,4 @@ sources/0 = SubResource("TileSetAtlasSource_okdab")
 position = Vector2(1, 2)
 tile_set = SubResource("TileSet_4gndf")
 format = 2
-script = ExtResource("2_rqhkd")
+script = ExtResource("2_t2hm8")

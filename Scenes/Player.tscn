@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bcnaoj83xukrp"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_r1x3q"]
-[ext_resource type="SpriteFrames" uid="uid://bo8y5ogx6lnvq" path="res://Art/Animations/player_sprite_frames.tres" id="2_3n5p0"]
+[ext_resource type="SpriteFrames" uid="uid://cnl73wnwtfgsv" path="res://Art/Animations/player_sprite_frames.tres" id="2_3n5p0"]
 [ext_resource type="Script" path="res://Scenes/AnimatedSprite2d.gd" id="3_y2qh0"]
 [ext_resource type="AudioStream" uid="uid://ufw0es4u4k6f" path="res://Audio/Jump_v4.wav" id="4_e0ryp"]
 [ext_resource type="Script" path="res://Scenes/FootstepRandom.gd" id="4_l118j"]
