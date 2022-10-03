@@ -104,6 +104,7 @@ terrain_set_1/terrain_0/color = Color(0.152941, 0.443137, 0.341176, 1)
 sources/0 = SubResource("TileSetAtlasSource_okdab")
 
 [node name="AlexBranches" type="TileMap"]
+texture_filter = 1
 position = Vector2(1, 2)
 tile_set = SubResource("TileSet_4gndf")
 format = 2
