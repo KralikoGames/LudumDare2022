@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8lijh3pceq5e"]
+[gd_scene load_steps=7 format=3 uid="uid://ce14e7p28eo1q"]
 
 [ext_resource type="Script" path="res://AlexFullGrowth.gd" id="1_mxmnb"]
-[ext_resource type="PackedScene" uid="uid://bni2odftjo2ud" path="res://Scenes/AlexAllBranches.tscn" id="2_2qyhv"]
+[ext_resource type="PackedScene" uid="uid://ppgdrd42j3j8" path="res://Scenes/AlexAllBranches.tscn" id="2_2qyhv"]
 [ext_resource type="AudioStream" uid="uid://bx6nfsrlko4iy" path="res://Audio/Grow_platform_v1.wav" id="3_ey7w3"]
 [ext_resource type="AudioStream" uid="uid://bh8ow8wtx3l7r" path="res://Audio/Tree_Grow_v1.wav" id="4_fpw4m"]
 [ext_resource type="AudioStream" uid="uid://b3dvuvhmsjgs5" path="res://Audio/Wood_v1.wav" id="5_11l5f"]

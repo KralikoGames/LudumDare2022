@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://74f3kt7ofx45"]
+[gd_scene load_steps=5 format=3 uid="uid://dxac7tof4tacc"]
 
 [ext_resource type="Texture2D" uid="uid://ddvdyew1i2n8d" path="res://Art/leaves and branches tileset.png" id="1_0oaki"]
 [ext_resource type="AudioStream" uid="uid://bx6nfsrlko4iy" path="res://Audio/Grow_platform_v1.wav" id="2_wkhln"]
