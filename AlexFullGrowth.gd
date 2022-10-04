@@ -136,7 +136,7 @@ func grow_chungus():
 	get_parent().call_deferred("add_child", pop)
 	get_parent().call_deferred("add_child", thing)
 	pop.global_position = chungs_location
-	fruit.global_position = chungs_location
+	thing.global_position = chungs_location
 	$BigFruitSound.play()
 	
 	
