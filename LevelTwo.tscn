@@ -35,6 +35,7 @@ layer_0/tile_data = PackedInt32Array(1966106, 1048577, 8, 786459, 1, 3, -131045,
 
 [node name="Player" parent="." instance=ExtResource("2_wsx14")]
 position = Vector2(63, -707)
+z_index = 2
 
 [node name="Fruit" parent="." instance=ExtResource("8_x4srw")]
 position = Vector2(-5, -831)

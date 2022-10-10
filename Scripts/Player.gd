@@ -128,6 +128,8 @@ func _physics_process(delta):
 
 	if frozen and frozen_time > 2:
 		frozen = false
+		velocity.y = 0
+		velocity.x = 0
 		frozen_time = 0
 	elif frozen:
 		frozen_time += delta

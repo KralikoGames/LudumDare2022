@@ -1,7 +1,7 @@
 extends Node2D
 
 const BRANCH_OFFSET = 3
-const GROW_CYCLES = 10
+const GROW_CYCLES = 15
 const BRANCH_NUMBER = 4
 const LEAF_SPACING = 5
 const GROW_PHASES = 6
@@ -69,15 +69,15 @@ func run_grow_phase(base_height):
 	await get_tree().create_timer(1).timeout
 	var fruit_list = []
 	for branch in range(0, len(branch_tiles)):
-		for cell in range(LEAF_SPACING - 1, GROW_CYCLES, LEAF_SPACING):
+		for cell in range(LEAF_SPACING, GROW_CYCLES+1, LEAF_SPACING):
+			print(cell)
 			var platform_location = branch_tiles[branch][cell]
-			var platform_size = randi()%3 + 2 # between 2 and 4
+			var platform_size = randi()%4 + 2 # between 2 and 4
 			var platform_array = [platform_location]
-#			platform_effect(platform_location)
+			platform_effect(platform_location)
 			for i in range(-platform_size/2, platform_size/2, 1):
 				var new_cell = Vector2i(platform_location.x + i, platform_location.y)
 				platform_array.append(new_cell)
-				platform_effect(new_cell)
 			$AlexLeaves.set_cells_terrain_connect(0, platform_array, 1, 0)
 			
 			# Add fruit

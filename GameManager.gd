@@ -36,6 +36,7 @@ func _ready():
 
 func _on_game_over():
 	# Start out
+	$Track1.stop()
 	await get_tree().create_timer(1).timeout
 	
 	# Falling
