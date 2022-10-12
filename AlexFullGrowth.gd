@@ -1,7 +1,7 @@
 extends Node2D
 
 const BRANCH_OFFSET = 3
-const GROW_CYCLES = 10
+const GROW_CYCLES = 20
 const BRANCH_NUMBER = 4
 const LEAF_SPACING = 5
 const GROW_PHASES = 6
