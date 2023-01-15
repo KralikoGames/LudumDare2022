@@ -60,32 +60,74 @@ region = Rect2(168, 0, 24, 24)
 
 [resource]
 animations = [{
-"frames": [SubResource("AtlasTexture_i34qw")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i34qw")
+}],
 "loop": true,
 "name": &"air_down",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_uf1ym")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf1ym")
+}],
 "loop": true,
 "name": &"air_up",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_3i3j3"), SubResource("AtlasTexture_gcw1o")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i3j3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcw1o")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_2gfve"), SubResource("AtlasTexture_4741j")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gfve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4741j")
+}],
 "loop": false,
 "name": &"jump",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_uq57m"), SubResource("AtlasTexture_c2i8v")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq57m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2i8v")
+}],
 "loop": false,
 "name": &"land",
 "speed": 20.0
 }, {
-"frames": [SubResource("AtlasTexture_mwctk"), SubResource("AtlasTexture_3l4wx"), SubResource("AtlasTexture_on071"), SubResource("AtlasTexture_s5llb"), SubResource("AtlasTexture_11lpk"), SubResource("AtlasTexture_ae0jw")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwctk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l4wx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on071")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5llb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11lpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ae0jw")
+}],
 "loop": true,
 "name": &"run",
 "speed": 15.0
