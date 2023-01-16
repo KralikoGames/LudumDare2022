@@ -13,26 +13,9 @@ signal clear_bushes
 func _ready():
 	# Setup
 	$Player.game_over.connect(_on_game_over)
+	_on_game_over()
 	
-	
-	# Start out
-	await get_tree().create_timer(1).timeout
-	
-	# Falling
-	emit_signal("clear_bushes")
-	$AlexFullGrowth.clear_cells()
-	await get_tree().create_timer(3).timeout
-	
-	# Tile Card
-	$Fruit._del()
-	var thing = title_card.instantiate()
-	get_parent().call_deferred("add_child", thing)
-	thing.global_position = $Camera.global_position
-	await get_tree().create_timer(3).timeout
-	
-	# Growing
-	$AlexFullGrowth.grow_tree()
-	$Track1.play()
+
 
 func _on_game_over():
 	# Start out
